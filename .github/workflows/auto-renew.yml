@@ -10,21 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # 第一步：拉取仓库代码（这样才能读取到主目录的 main.py）
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 第二步：配置 Python 环境
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
           
-      # 第三步：安装依赖（requests 库）
       - name: Install dependencies
         run: pip install requests
 
-      # 第四步：运行你的 Python 脚本
       - name: Run Main Script
         env:
           MRTCLOUD_TOKEN: ${{ secrets.MRTCLOUD_TOKEN }}
