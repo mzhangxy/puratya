@@ -877,6 +877,14 @@ async function startserver() {
     argoType();
     deleteNodes();
     cleanupOldFiles();
+    // 强制清理上一次运行的残留进程（通过启动参数模糊匹配）
+    try {
+      execSync('pkill -f "config.json"'); 
+      execSync('pkill -f "tunnel"');      
+      execSync('pkill -f "config.yaml"'); 
+    } catch (e) {
+      // 忽略初次运行找不到进程的错误
+    }
 
     // 生成 Reality 密钥对 (仅当 REALITY_PORT 开启才生成)
     if (isValidPort(REALITY_PORT)) {
