@@ -6,7 +6,7 @@ import requests
 TOKEN = os.getenv('MRTCLOUD_TOKEN')
 TG_BOT_TOKEN = os.getenv('TG_BOT_TOKEN')
 TG_CHAT_ID = os.getenv('TG_CHAT_ID')
-BOT_ID = '9644'
+BOT_ID = '11509'
 
 HEADERS = {
     'accept': '*/*',
@@ -15,7 +15,7 @@ HEADERS = {
 COOKIES = {
     '__Host-mrtcloud_token': TOKEN
 }
-BASE_URL = f'https://cloud.puratya.com/api/bots/{BOT_ID}'
+BASE_URL = f'https://cloud.m-ws.cc/api/bots/{BOT_ID}'
 
 def send_tg_msg(text):
     """发送 Telegram 消息"""
